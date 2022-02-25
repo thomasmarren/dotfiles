@@ -38,7 +38,7 @@ brew install navi
 echo '' >> ~/.zshrc
 echo '# navi' >> ~/.zshrc
 echo 'eval "$(navi widget zsh)"' >> ~/.zshrc
-echo 'export NAVI_PATH="$PATH/.navi_cheatsheets"' >> ~/.zshrc
+echo 'export NAVI_PATH="$HOME/.navi_cheatsheets"' >> ~/.zshrc
 echo '#' >> ~/.zshrc
 mkdir -p ~/.navi_cheatsheets
 mv ~/dotfiles/.navi_cheatsheets/generic.cheat ~/.navi_cheatsheets/generic.cheat
