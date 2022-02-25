@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
-#
-# vim: textwidth=0:filetype=sh
-#
 
 # This is a rough outline of the steps that are necessary to setup a new system
 # with all my tools/settings on macos
@@ -44,4 +41,4 @@ echo 'eval "$(navi widget zsh)"' >> ~/.zshrc
 echo 'export NAVI_PATH="$PATH/.navi_cheatsheets"' >> ~/.zshrc
 echo '#' >> ~/.zshrc
 mkdir -p ~/.navi_cheatsheets
-echo curl 'https://raw.githubusercontent.com/thomasmarren/dotfiles/main/.navi_cheatsheets/generic.cheat' > ~/.navi_cheatsheets/generic.cheat
+mv ~/dotfiles/.navi_cheatsheets/generic.cheat ~/.navi_cheatsheets/generic.cheat
