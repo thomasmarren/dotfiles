@@ -1,0 +1,125 @@
+% git
+
+# Change branch
+git checkout <branch>
+
+$ branch: git branch | awk '{print $NF}'
+
+# Checkout file from another branch
+git checkout <branch> -- <paths>
+
+# List files which have been staged
+git diff --name-only --cached
+
+# Use main as your main branch
+git branch -M main
+
+# Find file with unknown path
+git log --all --full-history -- "**/<file_name>.*"
+
+# Find file with known path
+git log --all --full-history -- <full_path_to_file>
+
+# Find commits not merged
+git log <source_branch> --not <target_branch>
+
+# Find which files have changed between commits
+git log <source_branch> --not <target_branch> --stat
+
+# List branches merged into master
+git branch --merged master
+
+# Delete local branches that have been merged
+git branch --merged master | grep -v "master" | grep -v "production" | xargs git b -D
+
+# Search git history for text within files
+git log -S "<text>" <file_name>
+
+# https://stackoverflow.com/a/56054951/2892779
+# Find last commit which deleted a file
+
+git rev-list -n 1 HEAD -- <full_path_to_file>
+
+# Empty commit
+git commit --allow-empty -m "Empty commit to trigger build"
+
+#  List files and last modification dates
+git ls-files -z | xargs -0 -n1 -I{} -- git log -1 --format="%ai {}" {}
+
+# Pre-compute file paths to speed up git log commands
+git commit-graph write --reachable --changed-paths
+
+# Add executable flag onto file
+git update-index --chmod=+x <path_to_file>
+
+# Remove executable flag onto file
+git update-index --chmod=-x <path_to_file>
+
+
+% macos
+
+# Remove the developer cannot be verified message
+
+xattr -d com.apple.quarantine <full_path_to_file>
+
+# Disable Spotlight in a folder
+touch .metadata_never_index
+
+
+% rails
+
+# Routes for specific controller
+rails routes -c <controller_name>
+
+# Update rails & dependencies
+bundle update rails actionview actionpack activerecord activesupport railties activemodel --conservative
+
+
+% zsh
+
+# List directories ordered by size
+du -hs * | sort -hr
+
+# Count files in subdirectories
+find . -type f | cut -d"/" -f2 | uniq -c
+
+# Remove duplicates in zsh_history
+cat -n .zsh_history | sort -t ';' -uk2 | sort -nk1 | cut -f2- > ~/.zsh_short_history && mv ~/.zsh_short_history ~/.zsh_history
+
+# Sort files by number of lines
+find <folder> -type f -exec wc -l {} + | sort -rn
+
+# Sort file by lines greater than
+awk 'length($0) > <max_length> {printf "%4d : %s(%4d):%s\n", length($0), FILENAME, FNR, $0}' <path_to_file>
+
+# Fold long lines
+fold -w <width> -s <input_file_name> > <output_file_name>
+
+
+% curl
+
+# curl GET URL as JSON
+curl -H "Content-type: application/json" -H "Accept: application/json" "<url>"
+
+
+% shell
+
+# https://stackoverflow.com/a/2556282/2892779
+# Generate a random number in a range
+
+shuf -i <start_range>-<end_range> -n 1
+
+
+% general, system
+
+# Replace text in a file with sed
+sed -i .bak 's/<string_to_replace>/<new_string>/' <file_name>
+
+# List all files, but with some folders excluded
+tree -a -I '.git|node_modules'
+
+
+% ruby
+
+# Bundle audit and run updates
+bundle audit check --update
