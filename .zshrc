@@ -20,6 +20,7 @@ alias a="code $@"
 alias sz="source ~/.zshrc"
 alias zshrc="code ~/.zshrc"
 alias gitignore="a ~/.gitignore"
+alias push_current="git push origin $(git rev-parse --abbrev-ref HEAD)"
 
 function ports () {
   lsof -t -i :$@
