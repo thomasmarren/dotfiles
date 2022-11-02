@@ -1,0 +1,7 @@
+[user]
+	name = Tom Marren
+	email = tmarren2090@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
