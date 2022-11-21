@@ -22,9 +22,17 @@ alias zshrc="code ~/.zshrc"
 alias gitignore="a ~/.gitignore"
 
 function push_current() {
-  echo "hello world"
   echo "git push origin $(git rev-parse --abbrev-ref HEAD)"
   git push origin $(git rev-parse --abbrev-ref HEAD)
+}
+
+function cppr() {
+  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+  PR="https://github.com/<ORG>/<REPO>/pull/new/$CURRENT_BRANCH"
+  echo $PR
+  echo $PR | tr -d '\n' | pbcopy
+  echo "PR link copied to clipboard"
 }
 
 function ports() {
