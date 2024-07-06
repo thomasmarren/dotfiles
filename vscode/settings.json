@@ -1,46 +1,31 @@
 {
-  "window.zoomLevel": 1,
-  "typescript.tsserver.trace": "verbose",
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript"],
+  "files.insertFinalNewline": true,
+  "git.openDiffOnClick": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "scm.defaultViewMode": "tree",
+  "search.mode": "newEditor",
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.tsserver.log": "off",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "none",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.addMissingImports": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "after": ["<esc>"]
     }
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
-    "<C-d>": false,
-    "<D-d>": false
-  },
-  "editor.fontSize": 14,
-  "search.mode": "newEditor",
-  "security.workspace.trust.untrustedFiles": "open",
-  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.formatOnSave": true
+  "window.zoomLevel": 1,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  }
 }
