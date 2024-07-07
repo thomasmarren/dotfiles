@@ -28,19 +28,30 @@ alias gbsort="gb"
 
 alias github_key="ssh-add ~/.ssh/id_rsa"
 
+alias gpod="git pull origin develop"
+
+# Merge current origin branch into current local branch
+function pull_current() {
+  echo "git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  git pull origin $(git rev-parse --abbrev-ref HEAD) $@
+}
+
+# Push current branch to origin
 function push_current() {
   echo "git push origin $(git rev-parse --abbrev-ref HEAD)"
-  git push origin $(git rev-parse --abbrev-ref HEAD)
+  git push origin $(git rev-parse --abbrev-ref HEAD) $@
 }
 
 function ports() {
   lsof -t -i :$@
 }
 
+# Copy link to create a PR for branch on Github
 function cppr() {
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  WORKING_DIR=${PWD##*/}
 
-  PR="$GIT_REMOTE/pull/new/$CURRENT_BRANCH"
+  PR="https://github.com/$GITHUB_ORG/$WORKING_DIR/pull/new/$CURRENT_BRANCH"
   echo $PR
   echo $PR | tr -d '\n' | pbcopy
   echo "PR link copied to clipboard"
